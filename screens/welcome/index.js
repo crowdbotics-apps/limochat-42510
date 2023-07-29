@@ -1,64 +1,89 @@
-import React from "react"
-import {
-  View,
-  Image,
-  Text,
-  ScrollView,
-  SafeAreaView,
-  StyleSheet
-} from "react-native"
+import React from "react";
+import { View, Image, Text, ScrollView, SafeAreaView, StyleSheet } from "react-native";
 
-const WelcomeScreen = () => {
-  return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={styles.scrollView}>
-        <View style={styles.group} />
-        <View style={styles.group}>
-          <Image style={styles.logo} source={require("./logo.png")} />
-          <Text style={styles.text}>
-            Let's build something amazing together!
+const StartScreen = () => {
+  return <SafeAreaView style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollView} horizontal pagingEnabled showsHorizontalScrollIndicator={false}>
+        <View style={styles.slide}>
+          <Image style={styles.image} source={{
+          uri: "https://tinyurl.com/42evm3m3"
+        }} />
+          <Text style={styles.title}>{"Welcome to our app, enjoy it freely..."}</Text>
+          <Text style={styles.instructions}>
+            Please follow the instructions below to get started:
+          </Text>
+          <Text style={styles.step}>Step 1: Sign up for an account</Text>
+        </View>
+        <View style={styles.slide}>
+          <Image style={styles.image} source={{
+          uri: "https://tinyurl.com/42evm3m3"
+        }} />
+          <Text style={styles.title}>Explore the features</Text>
+          <Text style={styles.instructions}>
+            Take a look at all the amazing features our app has to offer.
+          </Text>
+          <Text style={styles.step}>
+            Step 2: Explore the features of the app
           </Text>
         </View>
-        <Text style={styles.footer}>Made with ❤️ by Crowdbotics</Text>
+        <View style={styles.slide}>
+          <Image style={styles.image} source={{
+          uri: "https://tinyurl.com/42evm3m3"
+        }} />
+          <Text style={styles.title}>Customize your profile</Text>
+          <Text style={styles.instructions}>
+            Personalize your profile by adding a photo and updating your
+            information.
+          </Text>
+          <Text style={styles.step}>Step 3: Customize your profile</Text>
+        </View>
       </ScrollView>
-    </SafeAreaView>
-  )
-}
+    </SafeAreaView>;
+};
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#F8F8FC",
-    height: "100%"
+    flex: 1,
+    backgroundColor: "#1e1e98"
   },
   scrollView: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "space-between",
-    padding: 20
+    justifyContent: "center"
   },
-  group: {
-    alignItems: "center"
+  slide: {
+    width: "100%",
+    alignItems: "center",
+    paddingHorizontal: 20,
+    borderRadius: 68
   },
-  logo: {
+  image: {
     height: 180,
     width: 180,
-    padding: 40,
     borderRadius: 30,
-    margin: 40
+    marginVertical: 40
   },
-  text: {
+  title: {
     textAlign: "center",
     fontSize: 28,
-    color: "#828AB0",
-    fontWeight: 700
+    color: "#1934b9",
+    fontWeight: "700",
+    marginBottom: 20,
+    flexDirection: "row",
+    flex: 1
   },
-  footer: {
+  instructions: {
     textAlign: "center",
     fontSize: 18,
     color: "#828AB0",
-    fontWeight: 700,
+    fontWeight: "700",
     marginBottom: 20
+  },
+  step: {
+    textAlign: "center",
+    fontSize: 16,
+    color: "#828AB0",
+    marginBottom: 10
   }
-})
-
-export default WelcomeScreen
+});
+export default StartScreen;
